@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              roboto: ["Roboto", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <title>Expense Tracker</title>
+</head>
+<body class="p-10">
+    <h1 class=" font-roboto text-4xl text-center mb-8 font-bold underline ">Expense Tracker</h1>
+    <form id="expenseForm">
+        <div class="flex justify-center gap-4">
+            <input class="border border-gray-300 p-2 px-4 rounded" type="text" name="" required id="expenseName" placeholder="Expense Name">
+            <input class="border border-gray-300 p-2 px-4 rounded" type="number" name="" required id="expenseAmount" placeholder="Expense Amount">
+
+            <select required class="border border-gray-300 p-4 px-6 rounded" id="expenseCategory">
+                <option value="">Select Category</option>
+                <option value="food">Food</option>
+                <option value="transport">Transport</option>
+                <option value="entertainment">Entertainment</option>
+            </select>
+
+            <input class="border border-gray-300 p-2 px-4 rounded" type="date" id="expenseDate" required>
+            <button type="submit" class="bg-green-500 text-white p-2 px-4 rounded">Add Expense</button>
+        </div>
+
+        <div class="flex flex-col mt-4 items-center">
+            <table class="table-auto w-full border-collapse">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="px-4 py-2 text-left border">Expense Name</th>
+                        <th class="px-4 py-2 text-left border">Expense Amount</th>
+                        <th class="px-4 py-2 text-left border">Expense Category</th>
+                        <th class="px-4 py-2 text-left border">Expense Date</th>
+                        <th class="px-4 py-2 text-left border">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="expenseList"></tbody>
+            </table>
+        </div>
+
+        <div class="mt-4">
+            <h1 class="text-right p-4 font-bold">
+                Total: ₹ <span id="totalAmount">0</span>
+            </h1>
+
+            <div class="flex justify-end items-center">
+                <p class="m-2 font-bold">Filter By Category:</p>
+                <select id="categoryFilter" class="border border-gray-300 p-2  rounded">
+                    <option value="">All</option>
+                    <option value="food">Food</option>
+                    <option value="transport">Transport</option>
+                    <option value="entertainment">Entertainment</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <script src="index.js"></script>
+</body>
+</html>
